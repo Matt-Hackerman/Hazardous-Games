@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id("GameID");
             $table->string("Title")->unique();
             $table->integer("playCount")->default(0);
-            $table->int("HighScore")->default(0);
-            $table->int("RecordHolder")->nullable();
+            $table->integer("HighScore")->default(0);
+            $table->integer("RecordHolder")->nullable();
             $table->float("Rating");
             $table->timestamps();
         });
