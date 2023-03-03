@@ -1,0 +1,27 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+.signupContainer {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.signupContainer input {
+    width: 180px;
+    padding: 5px;
+    border-radius: 5px;
+}
