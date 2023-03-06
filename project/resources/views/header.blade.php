@@ -47,7 +47,7 @@
         </div>
     </header>
     @yield('content')
-    <body>
+    <body class="dark">
         
         
         <script src="../main.js"></script>
@@ -125,6 +125,13 @@
                         <li><a href="#">Facebook</a></li>
                         <li><a href="#">YouTube</a></li>
                     </ul>
+                </div>
+                <div class="site-Settings">
+                    <h4>Settings</h4>
+                    <select class="lightDark" name="screenMode" id="screen">
+                        <option value="dark">Dark Mode</option>
+                        <option value="light">Light Mode</option>
+                    </select>
                 </div>
             </div>
         </div>

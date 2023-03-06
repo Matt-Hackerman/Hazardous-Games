@@ -2,7 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
+
+.dark {
+    background-color: #363636;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.light {
+    background-color: whitesmoke;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 header {
     position: sticky;
@@ -224,6 +236,24 @@ footer a:hover {
     height: 100%;
     text-align: left;
     padding: 40px 10px;
+}
+
+.site-Settings {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.lightDark {
+    color: white;
+    border-style: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.lightDark option {
+    background-color: #1e1e1c;
 }
 
 .footer-Copy-Right {
