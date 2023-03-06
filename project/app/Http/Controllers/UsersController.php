@@ -1,7 +1,12 @@
 <?php
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use App\Models\users;
+use Dotenv\Validator;
+use Exception;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -18,7 +23,17 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $dbTest = DB::select("select * from users WHERE Email = '".$request->input("Email")."' OR Username = '".$request->input("Username")."'");
+
+        $test = "true";
+
+        if(isset($dbTest) AND $dbTest != NULL){
+            $_SESSION['error'] = "false";
+            return redirect('signup');
+        }
+        users::create($request->all());
+        return redirect('login');
     }
 
     /**
@@ -45,3 +60,5 @@ class UsersController extends Controller
         //
     }
 }
+
+
