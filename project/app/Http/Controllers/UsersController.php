@@ -26,10 +26,8 @@ class UsersController extends Controller
         
         $dbTest = DB::select("select * from users WHERE Email = '".$request->input("Email")."' OR Username = '".$request->input("Username")."'");
 
-        $test = "true";
-
         if(isset($dbTest) AND $dbTest != NULL){
-            $_SESSION['error'] = "false";
+            $_SESSION['Error'] = "True";
             return redirect('signup');
         }
         users::create($request->all());

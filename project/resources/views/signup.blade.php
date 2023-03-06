@@ -6,12 +6,15 @@
     <body>
         <main class="main">
         
-        <?php if($_SESSION['error'] !== null){
-            echo "Email and Username must be unique"
-        } ?>
+        
             <form action="/api/users" method="POST"  class="signupContainer">
                 @csrf
                 <h1>Create Account</h1>
+
+                <?php if($_SESSION['Error'] !== null and $_SESSION['Error'] == "True"){
+                    echo "Email and Username must be unique";
+                    unset($_SESSION['Error']);
+                } ?>
 
                 <input type="text" placeholder="First Name" name="FName" required>
                 <input type="text" placeholder="Last Name" name="LName" required>
