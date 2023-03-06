@@ -5,6 +5,8 @@
   }
 
 header {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 15%;
 }
@@ -115,4 +117,122 @@ header {
     border-top: 0px solid transparent;
     border-bottom: 43px solid transparent; 
     border-right:100px solid #1e1e1c;
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 35%;
+    width: 100%;
+    margin: 0 0 20px 0;
+    background-color: #1e1e1c;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer h4 {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a {
+    text-decoration: none;
+    color: #0092ca;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #0092ca;
+    transition: 500ms;
+}
+
+.footer-Con {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 80%;
+}
+
+.footer-Logo-Con {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 100%;
+}
+
+.footer-Logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 100%;
+}
+
+.footer-Logo img {
+    width: 100%;
+    height: 30%;
+}
+
+.footer-Logo-Text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
+    font-size: 4.6rem;
+    color: white;
+    font-family: 'ARMY RUST', sans-serif;
+}
+
+.footer-Links-Con {
+    display: flex;
+    width: auto;
+    height: 100%;
+}
+
+.footer-about {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Game-links {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Hazardous-Math {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Hazardous-More {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Hazardous-Socials {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Copy-Right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
 }
