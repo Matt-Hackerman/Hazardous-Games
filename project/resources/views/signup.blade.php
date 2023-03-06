@@ -12,9 +12,7 @@
                 <input type="text" placeholder="Username" required>
                 <input type="email" placeholder="Email" required>
                 <input type="password" placeholder="Password" required>
-                <div>
-                    <input type="button" value="Create">
-                </div>
+                <input type="button" value="Create">
             </div>
         </main>
     </body>
