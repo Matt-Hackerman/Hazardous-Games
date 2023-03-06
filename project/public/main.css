@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 15%;
+}
+
+.nav-con {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 65%;
+}
+
+.logo-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17%;
+    height: 100%;
+    background-color: #1e1e1c;
+    padding: 0 0 0 15px;
+}
+
+.logo {
+    width: 25%;
+    height: 100%;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.logo-text {
+    width: 75%;
+    height: 100%;
+    font-size: 4.6rem;
+    color: white;
+    font-family: 'ARMY RUST', sans-serif;
+}
+
+.hazdImg {
+    width: 43%;
+    height: 100%;
+    background-color: #1e1e1c;
+}
+
+.hazdImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    background-color: #1e1e1c;
+}
+
+.nav ul {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    list-style: none;
+}
+
+.nav li {
+    font-size: 1.5rem;
+    margin: 0 25px 0 0;
+    display: inline;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav a:hover {
+    color: yellow;
+    transition: 500ms;
+}
+
+.user-con {
+    display: flex;
+    justify-content: center;
+    float: right;
+    text-align: center;
+    width: 20%;
+    height: 35%;
+}
+
+.user {
+    width: 70%;
+    height: 100%;
+    background-color: #1e1e1c;
+}
+
+.user p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.userTri {
+    width: 0; 
+    height: 0; 
+    border-top: 0px solid transparent;
+    border-bottom: 43px solid transparent; 
+    border-right:100px solid #1e1e1c;
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 35%;
+    width: 100%;
+    margin: 0 0 20px 0;
+    background-color: #1e1e1c;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer h4 {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a {
+    text-decoration: none;
+    color: #0092ca;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #0092ca;
+    transition: 500ms;
+}
+
+.footer-Con {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 80%;
+}
+
+.footer-Logo-Con {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 100%;
+}
+
+.footer-Logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 100%;
+}
+
+.footer-Logo img {
+    width: 100%;
+    height: 30%;
+}
+
+.footer-Logo-Text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
+    font-size: 4.6rem;
+    color: white;
+    font-family: 'ARMY RUST', sans-serif;
+}
+
+.footer-Links-Con {
+    display: flex;
+    width: auto;
+    height: 100%;
+}
+
+.footer-about {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Game-links {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Hazardous-Math {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Hazardous-More {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Hazardous-Socials {
+    width: auto;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px;
+}
+
+.footer-Copy-Right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+}
