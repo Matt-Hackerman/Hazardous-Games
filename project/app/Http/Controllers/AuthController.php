@@ -26,26 +26,7 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {   
-
-        $request->validate([
-            'FName'      => 'required',
-            'LName'      => 'required',
-            'Username'   => 'required | unique:users',
-            'Email'      => 'required | unique:users',
-            'Password'   => 'required',
-        ]);
-        
-        // $input = $request->all();
-        
-        users::create([
-            'FName' => $request->FName,
-            'LName' => $request->LName,
-            'Username' => $request->Username,
-            'Email' => $request->Email,
-            'Password' => $request->Password,
-        ]);
-
-        return redirect('/signup');
+        //
     }
 
     /**
