@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +6,10 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/signup.css') }}">
     <title>Login</title>
 </head>
-<body>
+
+@extends('header')
+
+@section('content')
     <main class="main">
         <form action="/api/login" method="POST" class="signupContainer">
             <h1>Login</h1>
@@ -32,5 +34,4 @@
             <input type="submit" value="Login">
         </form>
     </main>
-</body>
-</html>
+@endsection
