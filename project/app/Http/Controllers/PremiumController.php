@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Premium;
+use App\Models\users;
 use Illuminate\Http\Request;
 
 class PremiumController extends Controller
@@ -13,13 +15,15 @@ class PremiumController extends Controller
     {
         //
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $temp = Premium::findOrFail($_SESSION['UserID']);
+        $temp -> update($request->all());
+        return $temp;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PremiumController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 
 route::resource('users', UsersController::class);
+route::resource('premium', PremiumController::class);
+
 
 Route::post('/login', [AuthController::class, 'login']);
 
