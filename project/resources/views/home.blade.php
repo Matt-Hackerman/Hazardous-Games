@@ -1,7 +1,8 @@
-@extends('header')
+<head>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
 
-@section('header')
-@endsection
+@extends('header')
 
 @section('content')
     <h1>test Content</h1>
