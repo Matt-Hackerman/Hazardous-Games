@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Models\Premium;
 use App\Models\User;
 use App\Models\users;
 use Dotenv\Validator;
@@ -31,6 +33,7 @@ class UsersController extends Controller
             return redirect('signup');
         }
         users::create($request->all());
+        Premium::create([]);
         return redirect('login');
     }
 

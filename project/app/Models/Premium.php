@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Premium extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'Premium',
+        'RecurringDate',
+        'CreditCard',
+        'ExpDate',
+        'CVV',
+    ];
 }

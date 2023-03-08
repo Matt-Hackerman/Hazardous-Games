@@ -22,3 +22,7 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
+Route::get('/premium', function () {
+    return view('premium');
+});
+
