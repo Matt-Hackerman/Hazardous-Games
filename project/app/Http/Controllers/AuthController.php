@@ -29,4 +29,11 @@ class AuthController extends Controller
         $_SESSION["Error"] = "MainInput";
         return redirect('login');
     }
+
+    public function logout(){
+        if(isset($_SESSION['UserID'])){
+            unset($_SESSION['UserID']);
+        }
+        return redirect()->back();
+    }
 }

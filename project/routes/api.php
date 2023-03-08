@@ -21,4 +21,5 @@ use Illuminate\Support\Facades\Route;
 route::resource('users', UsersController::class);
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
