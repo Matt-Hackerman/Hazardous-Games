@@ -24,4 +24,5 @@ route::resource('premium', PremiumController::class);
 
 
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
