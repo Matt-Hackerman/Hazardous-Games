@@ -39,7 +39,9 @@
                 </div>
             </div>
             <div class="user-con">
-                <div class="userTri"></div>
+                <div class="userTri">
+                    <img src="../images/triangle.png" alt="triangle">
+                </div>
                 <div class="user">
                     {{-- <p>Guest User</p> use is no user is signed in --}}
                     <p>BigRockMan982</p>
