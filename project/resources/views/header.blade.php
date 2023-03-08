@@ -2,6 +2,13 @@
     if(!isset($_SESSION)) { 
         session_start(); 
     }
+
+    if(isset($_SESSION['UserID'])){
+        $currentUser = DB::select('select Username from users where UserID = '.$_SESSION['UserID']);
+        $currentUser = json_decode(json_encode($currentUser), true)[0]['Username'];
+    }else{
+        $currentUser = "Guest";
+    }
 ?>
 
 <html>
@@ -32,7 +39,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
                         <?php 
-                            if(isset($_SESSION['UserID'] OR $_SESSION['UserID'] != null)){
+                            if(isset($_SESSION['UserID']) AND $_SESSION['UserID'] != null){
                                 echo '<li><a href="/premium">Premium</a>
                                     </li><li><a href="/api/logout">Logout</a></li>';
                             }else{
@@ -46,8 +53,8 @@
             <div class="user-con">
                 <div class="userTri"></div>
                 <div class="user">
-                    {{-- <p>Guest User</p> use is no user is signed in --}}
-                    <p>BigRockMan982</p>
+                    
+                    <p>{{ $currentUser }}</p>
                 </div>
             </div>
         </header>
