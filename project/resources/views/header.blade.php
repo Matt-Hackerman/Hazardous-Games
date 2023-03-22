@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="../css/grid.css">
         <link href="https://fonts.cdnfonts.com/css/army-rust" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="shortcut icon" href="../images/hazardous-games-logo.png">
     </head>
     
     <body class="dark">
