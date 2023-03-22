@@ -20,19 +20,21 @@
     display: grid;
     justify-content: center;
     align-items: center;
+    justify-items: center;
     width: 100%;
     height: 100%;
     grid-template-columns: 19% 19% 19% 19% 19%;
     grid-template-rows: 20% 20% 20% 20% 20%;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-gap: 10px;
 }
 
 .game-con {
+    width: 200px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .game {
@@ -41,6 +43,7 @@
     border-radius: 30px 30px 0 0;
     overflow: hidden;
     background-color: rgba(57, 255, 20, 0.3);
+    cursor: pointer;
 }
 
 .game img {
