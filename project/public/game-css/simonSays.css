@@ -1,0 +1,69 @@
+.simon-says-grid {
+    display: grid;
+    grid-template-areas: 
+        "stats stats stats"
+        ". ssgame ."
+    ;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 15% 85%;
+    width: 100%;
+    height: 100%;
+    background-color: #363636;
+}
+
+.ss-stats {
+    grid-area: stats;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.ss-grid {
+    grid-area: ssgame;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 3px;
+    width: 100%;
+    height: 100%;
+    border-radius: 70px;
+    padding: 0 0 20px 0;
+}
+
+.ss-item {
+    background-color: #bab6b6;
+    cursor: pointer;
+}
+
+.ss-item:hover {
+    transform: scale(1.03);
+    transition: 300ms;
+}
+
+#a1 {
+    border-radius: 70px 0 0 0;
+}
+
+#a3 {
+    border-radius: 0 70px 0 0;
+}
+
+.red {
+    background-color: rgb(245, 76, 76);
+}
+
+.green {
+    background-color: rgb(50, 180, 50);
+}
+
+.blue {
+    background-color: rgb(66, 66, 238);
+}
+
+#c1 {
+    border-radius: 0 0 0 70px;
+}
+
+#c3 {
+    border-radius: 0 0 70px 0;
+}
