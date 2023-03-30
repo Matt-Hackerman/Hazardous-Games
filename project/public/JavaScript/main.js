@@ -19,7 +19,6 @@ $(window).on('load', function() {
 
 $(window).on('resize', function() {
     gridRepeat = Math.floor(($(window).width() * .7) / 210);
-    console.log(gridRepeat);
     gridResize = "repeat(" + gridRepeat + ", 1fr)";
     $('.game-grid').css ('grid-template-columns', gridResize);
 });
