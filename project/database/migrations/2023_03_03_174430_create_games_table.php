@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer("HighScore")->default(0);
             $table->integer("RecordHolder")->nullable();
             $table->float("Rating");
+            $table->string("URL")->unique();
+            $table->string("ThumbURL");
             $table->timestamps();
         });
     }
