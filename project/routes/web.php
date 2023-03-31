@@ -26,3 +26,6 @@ Route::get('/premium', function () {
     return view('premium');
 });
 
+Route::get('/GameTest', function () {
+    return view('games/KnuckleBones');
+});
