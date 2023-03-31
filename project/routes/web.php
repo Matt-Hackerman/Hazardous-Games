@@ -13,13 +13,16 @@ Route::get('/header', function () {
     return view('header');
 });
 
-
 Route::get('/login', function () {
     return view('login');
 });
 
 Route::get('/signup', function () {
     return view('signup');
+});
+
+Route::get('/simon-says', function() {
+    return view('/simon-says');
 });
 
 Route::get('/premium', function () {
@@ -29,3 +32,8 @@ Route::get('/premium', function () {
 Route::get('/GameTest', function () {
     return view('games/KnuckleBones');
 });
+
+Route::get('/frogger', function () {
+    return view('frogger');
+});
+

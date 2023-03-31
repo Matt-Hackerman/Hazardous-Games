@@ -1,3 +1,4 @@
+// Dark Mode setting
 $('#siteTheme').click(function() {
     if ($('#siteTheme').prop('checked')) {
         $('body').removeClass("light");
@@ -7,4 +8,17 @@ $('#siteTheme').click(function() {
         $('body').removeClass("dark");
         $('body').addClass("light");
     }
+});
+
+//resizes game grid on screen size
+$(window).on('load', function() {
+    var gridRepeat = Math.floor(($(window).width() * .7) / 210);
+    var gridResize = "repeat(" + gridRepeat + ", 1fr)";
+    $('.game-grid').css ('grid-template-columns', gridResize);
+});
+
+$(window).on('resize', function() {
+    gridRepeat = Math.floor(($(window).width() * .7) / 210);
+    gridResize = "repeat(" + gridRepeat + ", 1fr)";
+    $('.game-grid').css ('grid-template-columns', gridResize);
 });

@@ -22,7 +22,8 @@ class PremiumController extends Controller
     public function store(Request $request)
     {
         $temp = Premium::findOrFail($_SESSION['UserID']);
-        $temp -> update($request->all());
+        $recurring = date('Y-m-d', strtotime(date('Y-m-d').' + 1 month'));
+        $temp->update(array_merge($request->all(), ['RecurringDate' => $recurring], ['Premium' => true]));
         return $temp;
     }
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Premium extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'UserID';
     protected $fillable = [
         'Premium',
         'RecurringDate',
