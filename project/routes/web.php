@@ -29,6 +29,10 @@ Route::get('/premium', function () {
     return view('premium');
 });
 
+Route::get('/GameTest', function () {
+    return view('games/KnuckleBones');
+});
+
 Route::get('/frogger', function () {
     return view('frogger');
 });

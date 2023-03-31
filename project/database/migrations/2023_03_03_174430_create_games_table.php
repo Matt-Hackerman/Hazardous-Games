@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id("GameID");
             $table->string("Title")->unique();
+            $table->string("Developer");
             $table->integer("playCount")->default(0);
             $table->integer("HighScore")->default(0);
             $table->integer("RecordHolder")->nullable();
