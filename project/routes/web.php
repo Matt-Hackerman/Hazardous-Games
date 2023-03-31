@@ -26,3 +26,7 @@ Route::get('/premium', function () {
     return view('premium');
 });
 
+Route::get('/frogger', function () {
+    return view('frogger');
+});
+
