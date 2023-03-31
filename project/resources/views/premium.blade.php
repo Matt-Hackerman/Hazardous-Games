@@ -13,11 +13,10 @@
         @csrf
         <h1>Purchase Premium</h1>
 
-        <input type="text" placeholder="Recurring Date" name="RecurringDate" required>
         <input type="text" placeholder="Credit Card" name="CreditCard" required>
-        <input type="text" placeholder="Experiation Date" name="ExpDate" required>
+        <input type="date" placeholder="Experiation Date" name="ExpDate" required>
         <input type="text" placeholder="CVV" name="CVV" required>
-        <input type="submit" value="Signup">
+        <input type="submit" value="Purchase">
     </form>
 </main>
 
