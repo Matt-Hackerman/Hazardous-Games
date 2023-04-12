@@ -2,12 +2,15 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {
     height: 100vh;
     background-color: rgb(248, 248, 248);
-    overflow: hidden;
+    overflow:hidden;
 }
 
 .main-container {
@@ -53,19 +56,25 @@ body {
     border: 1px solid black;
     width: 6vw;
     height: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.gameBoard-Tile:hover {
+.tileHover {
     background-color: aqua;
 }
 
 /* Gamboard Mask Styling */
 
 .gameBoard-Mask {
-    width: 100px;
-    height: 100px;
-    padding: 100%;
     position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#PlayerMask, #AIMask {
+    display: none;
 }
 
 /* Portrait Styling */
@@ -100,11 +109,42 @@ body {
     height: 70%;
 }
 
+@media screen and (max-width: 600px) {
+    .emptyCorner {
+        display: none;
+    }
+
+    .gameBoard-Container.AI {
+        grid-column: 1 / span 2;
+    }
+
+    .gameBoard-Container.Player {
+        grid-column: 2 / span 2;
+    }
+
+    .gameBoard-Tile {
+        width: 15vw;
+        height: 15vw;
+    }
+
+    .AI>.gameBoard {
+        align-self: last baseline;
+        margin-right: 25px;
+    }
+
+    
+    .Player>.gameBoard {
+        align-self: first baseline;
+        margin-left: 25px;
+    }
+}
+
 /* Dice Styling */
 
 .dice {
     width: 5vw;
     height: 5vw;
+    pointer-events: none;
 }
 
 .diceDouble {
@@ -123,32 +163,41 @@ body {
     display: none;
 }
 
+.diceBoard-Dice {
+    padding: calc(max-content + 5%);
+}
+
 /* Win Popup Styling */
 
 .winPopup-Container {
+    z-index: 100;
+    width: 100vw;
+    height: 102.5vh;
+    position: absolute;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(ellipse, black, rgba(128, 128, 128, 0.500));
 }
 
 .winPopup {
-    display: none;
-    align-items: center;
-    justify-content: center;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color:white;
     background-color: rgb(141, 151, 159);
     border: 15px ridge gray;
-    height: max-content;
-    width: 100%;
+    min-height: max-content;
+    width: 50%;
 }
 
 /* Start Popup Styling */
 
 .startPopup-Container {
     width: 100vw;
-    height: 100vh;
+    height: 102.5vh;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -157,11 +206,13 @@ body {
 }
 
 .startPopup {
+    z-index: 100;
     background-image: radial-gradient(ellipse, rgb(106, 96, 96) 60%, rgba(128, 128, 128, 0.8));
     width: 50vw;
     min-width: max-content;
-    height: 30vw;
-    min-height: max-content;
+    min-height: 30vw;
+    height: max-content;
+    padding: 30px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,11 +232,20 @@ body {
     align-items: center;
 }
 
-.information>p {
-    margin-top: 10px;
+.information>h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
 }
 
-#begin {
+.information>p {
+    margin: 0 30px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+/* buttons */
+
+button {
     width: 60px;
     height: 35px;
     color: white;
@@ -193,7 +253,12 @@ body {
     border-radius: 5px;
 }
 
-#begin:hover {
+button:hover {
     background-color: rgb(43, 43, 43);
     cursor: pointer;
+}
+
+#restart {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
 }
