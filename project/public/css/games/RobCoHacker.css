@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: left;
+    background-image: url(../../images/F4Terminal.png), radial-gradient(ellipse, #0c1609, #010401);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 10vh 20vw;
+}
+
+p {
+    font-family: 'VT323', monospace, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5vw;
+    color: rgb(0, 227, 0);
+    text-shadow: 2px 2px 2px black;
+    font-size: 2vh;
+    line-height: 2.5vh;
+}
+
+.blankLine {
+    height: 2.5vh;
+}
+
+.selected {
+    color: black;
+    background-color: rgb(0, 227, 0);
+}

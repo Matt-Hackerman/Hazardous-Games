@@ -8,7 +8,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="{{ url('JavaScript/KnuckleBones.js') }}"></script>
-    <title>Kucklebones</title>
+    <title>Knucklebones</title>
 </head>
 <body>
     <div class="startPopup-Container">
