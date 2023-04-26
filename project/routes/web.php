@@ -5,16 +5,12 @@ if(!isset($_SESSION)){
     session_start(); 
 }
 
-Route::get('/header', function () {
-    return view('header');
-});
-
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/header', function () {
+    return view('header');
 });
 
 Route::get('/login', function () {
@@ -32,3 +28,7 @@ Route::get('/simon-says', function() {
 Route::get('/bomb-defusal', function() {
     return view('/bd-game');
 });
+Route::get('/premium', function () {
+    return view('premium');
+});
+
