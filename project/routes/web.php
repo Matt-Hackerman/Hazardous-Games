@@ -28,3 +28,7 @@ Route::get('/signup', function () {
 Route::get('/simon-says', function() {
     return view('/simon-says');
 });
+
+Route::get('/bomb-defusal', function() {
+    return view('/bd-game');
+});
