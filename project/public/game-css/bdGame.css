@@ -455,15 +455,163 @@
 
 ::-webkit-scrollbar {
     width: 10px;
-  }
+}
   
   /* Track */
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: #575252; 
-  }
+}
    
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #817d7d;
     border-radius: 10px;
-  }
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////  MINI GAMES CSS  /////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*  WIRE CUT  */
+.cut-wire-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.wire-con {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    height: 90%;
+}
+
+.wire-dec-top {
+    width: 70%;
+    height: 20%;
+    border-radius: 0 30px 0 0;
+}
+
+.wire-top {
+    width: 70%;
+    height: 30%;
+}
+
+.wire-cut {
+    height: 0;
+}
+
+.wires-cut {
+    height: 20% !important;
+}
+
+.wire-bottom {
+    width: 70%;
+    height: 30%;
+}
+
+.wire-dec-bottom {
+    width: 70%;
+    height: 20%;
+    border-radius: 0 0 30px 0;
+}
+
+.dec-top-red {
+    border-top: 20px solid #8b0000;
+    border-right: 20px solid #8b0000;
+}
+
+.dec-bottom-red {
+    border-bottom: 20px solid #8b0000;
+    border-right: 20px solid #8b0000;
+}
+
+.wire-red {
+    border-right: 20px solid #8b0000;
+}
+
+.dec-top-blue {
+    border-top: 20px solid blue;
+    border-right: 20px solid blue;
+}
+
+.dec-bottom-blue {
+    border-bottom: 20px solid blue;
+    border-right: 20px solid blue;
+}
+
+.wire-blue {
+    border-right: 20px solid blue;
+}
+
+.dec-top-yellow {
+    border-top: 20px solid yellow;
+    border-right: 20px solid yellow;
+}
+
+.dec-bottom-yellow {
+    border-bottom: 20px solid yellow;
+    border-right: 20px solid yellow;
+}
+
+.wire-yellow {
+    border-right: 20px solid yellow;
+}
+
+.dec-top-green {
+    border-top: 20px solid green;
+    border-right: 20px solid green;
+}
+
+.dec-bottom-green {
+    border-bottom: 20px solid green;
+    border-right: 20px solid green;
+}
+
+.wire-green {
+    border-right: 20px solid green;
+}
+
+.dec-top-white {
+    border-top: 20px solid white;
+    border-right: 20px solid white;
+}
+
+.dec-bottom-white {
+    border-bottom: 20px solid white;
+    border-right: 20px solid white;
+}
+
+.wire-white {
+    border-right: 20px solid white;
+}
+
+.scan-con {
+    position: fixed;
+    left: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 35%;
+    z-index: 999999;
+    pointer-events: none;
+}
+
+.scan-end {
+    width: 10%;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px 0 0 20px;
+}
+
+.scan {
+    width: 90%;
+    height: 100%;
+    background-color: rgba(255, 166, 0, 0.5);
+    border-radius: 0 20px 20px 0;
+}

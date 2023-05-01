@@ -83,6 +83,11 @@
             <div class="openBook" title="Hand Book">> Hand Book ></div>
         </div>
 
+        <div class="scan-con hidden">
+            <div class="scan-end"></div>
+            <div class="scan"></div>
+        </div>
+
         <div class="mini-gameInfo-Expanded"></div>
 
         <div class="gameOver hidden"></div>
@@ -105,8 +110,8 @@
                 <div id="wire" class="tool" title="Wire Cutters">
                     <img src="../images/wire-tool.png" alt="wire cutters">
                 </div>
-                <div id="invert" class="tool" title="Color Inverter">
-                    <img src="../images/invert-tool.png" alt="inverter">
+                <div id="scan" class="tool" title="scanner">
+                    <img src="../images/scanner-tool.png" alt="scanner">
                 </div>
                 <div id="pry" class="tool" title="Pry Tool">
                     <img src="../images/pry-tool.png" alt="pry tool">
@@ -128,7 +133,50 @@
                     </div>
 
                     <div id="mg1" class="mini-game">
-
+                        <div class="cut-wire-con">
+                            <div id="wire1" class="wire-con">
+                                <div class="wire-dec-top"></div>
+                                <div class="wire-top"></div>
+                                <div class="wire-cut"></div>
+                                <div class="wire-bottom"></div>
+                                <div class="wire-dec-bottom"></div>
+                            </div>
+                            <div id="wire2" class="wire-con">
+                                <div class="wire-dec-top"></div>
+                                <div class="wire-top"></div>
+                                <div class="wire-cut"></div>
+                                <div class="wire-bottom"></div>
+                                <div class="wire-dec-bottom"></div>
+                            </div>
+                            <div id="wire3" class="wire-con">
+                                <div class="wire-dec-top"></div>
+                                <div class="wire-top"></div>
+                                <div class="wire-cut"></div>
+                                <div class="wire-bottom"></div>
+                                <div class="wire-dec-bottom"></div>
+                            </div>
+                            <div id="wire4" class="wire-con">
+                                <div class="wire-dec-top"></div>
+                                <div class="wire-top"></div>
+                                <div class="wire-cut"></div>
+                                <div class="wire-bottom"></div>
+                                <div class="wire-dec-bottom"></div>
+                            </div>
+                            <div id="wire5" class="wire-con">
+                                <div class="wire-dec-top"></div>
+                                <div class="wire-top"></div>
+                                <div class="wire-cut"></div>
+                                <div class="wire-bottom"></div>
+                                <div class="wire-dec-bottom"></div>
+                            </div>
+                            <div id="wire6" class="wire-con">
+                                <div class="wire-dec-top"></div>
+                                <div class="wire-top"></div>
+                                <div class="wire-cut"></div>
+                                <div class="wire-bottom"></div>
+                                <div class="wire-dec-bottom"></div>
+                            </div>
+                        </div>
                     </div>
                     <div id="mg2" class="mini-game">
 
