@@ -55,9 +55,9 @@ $(document).ready(function () {
         var curPlayer = randInt(2); // Player is 1; AI is 2
 
         if (curPlayer == 1) {
-            $(".startPopup").html("<h1>Player goes first!</h1>");
+            $(".startPopup").html("<h1>Player 2 goes first!</h1>");
         } else {
-            $(".startPopup").html("<h1>Opponent goes first!</h1>");
+            $(".startPopup").html("<h1>Player 2 goes first!</h1>");
         }
 
 
