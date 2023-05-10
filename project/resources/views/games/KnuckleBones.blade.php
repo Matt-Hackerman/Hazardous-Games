@@ -18,6 +18,7 @@
                 <p>A game of risk and rewards</p>
                 <p>Scores are the total of all dice on your board</p>
                 <p><span class="diceDouble">Doubles</span> and <span class="diceTriple">Triples</span> can be made in each column and<br> are worth 2x and 3x respectively</p>
+                <p>You can remove your opponent's dice by matching the number on your side</p>
                 <p>Try and get a higher score then your opponent!<br><br>Click below to begin</p>
                 <button id="begin">Begin</button>
             </div>
