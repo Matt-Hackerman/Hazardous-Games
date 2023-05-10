@@ -37,3 +37,11 @@ Route::get('/frogger', function () {
     return view('frogger');
 });
 
+Route::get('/galaga', function () {
+    return view('galaga');
+});
+
+Route::get('/game', function () {
+    return view('game');
+});
+

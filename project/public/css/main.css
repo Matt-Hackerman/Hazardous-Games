@@ -5,8 +5,11 @@
 }
 
 body {
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 
 .dark {
     background-color: #363636;
@@ -20,12 +23,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 15%;
-}
+
 
 .nav-con {
     display: flex;
@@ -137,13 +135,26 @@ header {
     height: 100%;
 }
 
-footer {
+header {
     position: sticky;
-    top: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 35%;
+    top: 0;
     width: 100%;
-    margin: 20px 0 0 0;
+    height: 15%;
+    z-index: 100;
+}
+
+main {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 17rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 15rem;
+    width: 100%;
     background-color: #1e1e1c;
 }
 
