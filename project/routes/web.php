@@ -25,6 +25,9 @@ Route::get('/simon-says', function() {
     return view('/simon-says');
 });
 
+Route::get('/bomb-defusal', function() {
+    return view('/bd-game');
+});
 Route::get('/premium', function () {
     return view('premium');
 });
