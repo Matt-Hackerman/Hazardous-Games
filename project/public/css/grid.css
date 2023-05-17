@@ -17,13 +17,11 @@
     width: 100%;
     height: fit-content;
     padding: 0 10px;
-    background-color: red;
 }
 
 .filler {
     width: 100%;
     height: 330px;
-    background-color: blue;
 }
 
 .filler img {
