@@ -30,10 +30,19 @@ Route::get('/premium', function () {
 });
 
 Route::get('/GameTest', function () {
-    return view('games/RobCoHacker');
+    return view('games/KnuckleBones');
 });
+
 
 Route::get('/frogger', function () {
     return view('frogger');
+});
+
+Route::get('/galaga', function () {
+    return view('galaga');
+});
+
+Route::get('/game', function () {
+    return view('game');
 });
 
