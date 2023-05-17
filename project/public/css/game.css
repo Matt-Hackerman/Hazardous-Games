@@ -3,3 +3,32 @@ iframe {
     width: 100%;
     border: none;
 }
+
+.holder {
+    width: 100%;
+    min-height: 75vh;
+    padding-left: 25%;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 75% 1fr;
+    width: 100%;
+    min-height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .main {
+      grid-template-columns: 1fr;
+    }
+    .holder {
+        padding-right: 25%;
+    }
+    .description {
+        min-height: 10rem;
+    }
+}
+
+.main>* {
+    border: 1px solid white;
+}
