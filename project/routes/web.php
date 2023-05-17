@@ -36,7 +36,11 @@ Route::get('/premium', function () {
     return view('premium');
 });
 
-Route::get('/GameTest', function () {
+Route::get('/robco', function () {
+    return view('games/RobCoHacker');
+});
+
+Route::get('/knucklebones', function () {
     return view('games/RobCoHacker');
 });
 
