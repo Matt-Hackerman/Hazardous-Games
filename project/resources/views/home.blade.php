@@ -10,16 +10,15 @@
         <div class="filler-grid"></div>
         <div class="game-grid">
             <?php foreach($games as $key => $game) { ?>
-                <p><?php $key ?></p>
-                <form method="get" action="/game" class="game-con">
-                    <input type="hidden" value="<?php $game->GameID; ?>">
-                    <button class="game-butt">
+                <form method="get" action="/game/?" class="game-con">
+                    <input type="hidden" name="gameID" value="<?php echo $game->GameID; ?>">
+                    <button class="game-butt dark">
                         <div class="game">
-                            <img src="<?php $game->ThumbURL; ?>">
+                            <img src="<?php echo $game->ThumbURL; ?>">
                         </div>
                         <div class="game-title">
-                            <h4><?php $game->Title; ?></h4>
-                            <p>Created by <?php $game->Developer; ?></p>
+                            <h4><?php echo $game->Title; ?></h4>
+                            <p>Created by <?php echo $game->Developer; ?></p>
                         </div>
                     </button>
                 </form>

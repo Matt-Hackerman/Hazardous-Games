@@ -13,13 +13,13 @@ body {
 
 .dark {
     background-color: #363636;
-    color: white;
+    color: white !important;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .light {
     background-color: whitesmoke;
-    color: black;
+    color: black !important;
     font-family: Arial, Helvetica, sans-serif;
 }
 

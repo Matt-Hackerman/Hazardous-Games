@@ -9,7 +9,7 @@ if(!isset($_SESSION)){
 
 Route::get('/', function () {
     $games = DB::select("select GameID, Title, Description, Developer, URL, ThumbURL from games");
-    // echo $games[0]->GameID;
+    // echo $games[0]->Title;
     return view('home')->with("games", $games);
 });
 
