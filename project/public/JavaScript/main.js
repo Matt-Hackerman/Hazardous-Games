@@ -9,16 +9,3 @@ $('#siteTheme').click(function() {
         $('body').addClass("light");
     }
 });
-
-//resizes game grid on screen size
-$(window).on('load', function() {
-    var gridRepeat = Math.floor(($(window).width() * .7) / 210);
-    var gridResize = "repeat(" + gridRepeat + ", 1fr)";
-    $('.game-grid').css ('grid-template-columns', gridResize);
-});
-
-$(window).on('resize', function() {
-    gridRepeat = Math.floor(($(window).width() * .7) / 210);
-    gridResize = "repeat(" + gridRepeat + ", 1fr)";
-    $('.game-grid').css ('grid-template-columns', gridResize);
-});

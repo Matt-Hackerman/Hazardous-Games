@@ -1,0 +1,48 @@
+:root {
+    --starsHeight: 0px;
+    --starsWidth: 0px;
+}
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+    background-image: url('../images/stars.png');
+    background-size: var(--starsWidth) var(--starsHeight);
+    background-repeat: repeat;
+    animation: stars 5s infinite linear both;
+}
+
+.retry {
+    font-size: 5vh;
+    text-align: center;
+    color: white;
+    position: absolute;
+    height: auto;
+    display: none;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 6vh;
+    text-align: center;
+    color: white;
+    position: absolute;
+    padding-top: 3%;
+}
+
+.container {
+    align-items: center;
+    padding-top: 2.2%;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes stars {
+    0% {
+        background-position-y: 0;
+    }
+    100% {
+        background-position-y: var(--starsHeight);
+    }
+}
