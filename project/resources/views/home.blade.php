@@ -7,7 +7,14 @@
 
 @section('content')
     <div class="home-Grid">
-        <div class="filler-grid"></div>
+        <div class="filler-grid">
+            <div class="filler">
+                <img id="f1" src="" alt="filler">
+            </div>
+            <div class="filler">
+                <img id="f2" src="" alt="filler">
+            </div>
+        </div>
         <div class="game-grid">
             <?php foreach($games as $key => $game) { ?>
                 <form method="get" action="/game/?" class="game-con">
@@ -24,7 +31,14 @@
                 </form>
             <?php } ?>
         </div>
-        <div class="filler-grid"></div>
+        <div class="filler-grid">
+            <div class="filler">
+                <img id="f3" src="" alt="filler">
+            </div>
+            <div class="filler">
+                <img id="f4" src="" alt="filler">
+            </div>
+        </div>
     </div>
     <footer>
         <div class="footer-Con">
