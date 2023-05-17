@@ -37,7 +37,7 @@ Route::get('/premium', function () {
 });
 
 Route::get('/GameTest', function () {
-    return view('games/KnuckleBones');
+    return view('games/RobCoHacker');
 });
 
 

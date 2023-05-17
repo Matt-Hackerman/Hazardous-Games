@@ -6,6 +6,9 @@
 </head>
 <h1 class="score">0</h1>
 <div class="container">
+    <h1 class="start" onclick="startNow()">
+        Start
+    </h1>
     <h1 class="retry" onclick="reload()">
         RETRY
         <br>
