@@ -7,22 +7,34 @@
 
 @section('content')
     <div class="home-Grid">
-        <div class="filler-grid"></div>
+        <div class="filler-grid">
+            <div class="filler">
+                <img id="f1" src="" alt="filler">
+            </div>
+            <div class="filler">
+                <img id="f2" src="" alt="filler">
+            </div>
+        </div>
         <div class="game-grid">
             <?php for($i = 0; $i < 8; $i++) { ?>
-                <?php for($i = 0; $i < 8; $i++) { ?>
-                    <div class="game-con">
-                        <div class="game">
-    
-                        </div>
-                        <div class="game-title">
-                            <h4>Title</h4>
-                        </div>
+                <div class="game-con">
+                    <div class="game">
+
                     </div>
-                <?php } ?>
+                    <div class="game-title">
+                        <h4>Title</h4>
+                    </div>
+                </div>
             <?php } ?>
         </div>
-        <div class="filler-grid"></div>
+        <div class="filler-grid">
+            <div class="filler">
+                <img id="f3" src="" alt="filler">
+            </div>
+            <div class="filler">
+                <img id="f4" src="" alt="filler">
+            </div>
+        </div>
     </div>
     <footer>
         <div class="footer-Con">

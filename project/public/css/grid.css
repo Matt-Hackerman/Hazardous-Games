@@ -1,16 +1,32 @@
 .home-Grid {
     display: grid;
     width: 100%;
-    height: 65%;
+    height: 100%;
     grid-template-columns: 15% 70% 15%;
     /* margin: 40px 0; */
 }
 
 .filler-grid {
+    position: sticky;
+    top: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: fit-content;
+    padding: 0 10px;
+}
+
+.filler {
+    width: 100%;
+    height: 330px;
+}
+
+.filler img {
     width: 100%;
     height: 100%;
-    padding: 0 10px;
-    background-color: red;
 }
 
 .game-grid {
