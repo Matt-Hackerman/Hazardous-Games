@@ -40,6 +40,7 @@ var initial = 300001;
 var count = initial;
 var counter;
 var initialMillis;
+var completed = 0;
 
 function timer() {
     if (count <= 0) {
@@ -70,13 +71,20 @@ function displayCount(count) {
             'color' : 'red'
         })
     }
-    if (minutes <= 0 && seconds <= 0 && milliseconds <= 0){
+    if (minutes <= 0 && seconds <= 0 && milliseconds <= 0 && completed != 1){
         $('.timer p').html("Danger");
         $('.timer p').css({
             'text-align' : 'center'
         });
         setInterval(blink_text, 100);
         gameOver();
+    }
+    if (minutes <= 0 && seconds <= 0 && milliseconds <= 0 && completed == 1){
+        $('.timer p').html("DEFUSED");
+        $('.timer p').css({
+            'text-align' : 'center',
+            'color' : 'limegreen'
+        });
     }
 }
 
@@ -93,7 +101,11 @@ $('.start').click(function() {
 
 displayCount(initial);
 
-$('#retry').click(function() {
+$('#retry-lose').click(function() {
+    location.reload();
+});
+
+$('#retry-win').click(function() {
     location.reload();
 });
 
@@ -101,6 +113,10 @@ $('#retry').click(function() {
 
 function gameOver() {
     $('.handBook-con').addClass('hidden');
+    $('.pro-bar').css({
+        'transition' : 'none'
+    });
+    $('.hacking-con').addClass('hidden');
     setTimeout(function() { //overall timer
         $('.timer p').html(" ");
         $('.screenCrack').removeClass('hidden');
@@ -125,7 +141,13 @@ function gameOver() {
 
         setTimeout(function() { //explo timer
             $('.endScreen').removeClass('hidden');
-            $('.scoreCard').removeClass('hidden');
+            $('#failure').removeClass('hidden');
+            for (let i = 1; i <= 3; i++) {
+                if ($('#mg' + i).hasClass('finished')) {
+                    $('#mini-game-' + i + ' p').attr('id', 'win');
+                    $('#mini-game-' + i + ' p').html('Completed');
+                }
+            }
         }, 700);
 
     }, 1000);
@@ -137,8 +159,380 @@ function blink_text() {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////  SWITCH Game JS  ///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let switchArrEz = [1, 1, 0, 1, 0];
+let switchArrMed = [0, 0, 1, 0, 1, 1, 1];
+let switchArrHrd = [1, 1, 1, 1, 0, 0, 1, 0, 1, 1];
+let compArr = [];
+let correctSwitch = 0;
+let ranSwitch = Math.floor(Math.random() * 3);
+
+function checkSwitchOrder(mode) {
+    if (mode == 0) {
+        for (let i = 1; i <= 5; i++) {
+            $('#s' + i).removeClass('hidden');
+        }
+    }
+    else if (mode == 1) {
+        for (let i = 1; i <= 7; i++) {
+            $('#s' + i).removeClass('hidden');
+        }
+    }
+    else if (mode == 2) {
+        $('.switch').removeClass('hidden');
+    }
+}
+checkSwitchOrder(ranSwitch);
+
+function testSwitchOrder(mode) {
+    if (mode == 0) {
+        for (let i = 1; i <= 5; i++) {
+            if ($('#s' + i).hasClass('up')) {
+                compArr.push(1);
+            }
+            else if ($('#s' + i).hasClass('down')) {
+                compArr.push(0);
+            }
+        }
+        for (let j = 0; j <= 5; j++) {
+            if (compArr[j] == switchArrEz[j]) {
+                correctSwitch++;
+            }
+        }
+        if ((correctSwitch - 1) == 5) {
+            completedLights();
+            let miniGameID = $('.switch-game-con').parent().attr('id');
+            $('#' + miniGameID).addClass('finished');
+        }
+        else {
+            count = 1;
+            displayCount(count);
+        }
+    }
+    else if (mode == 1) {
+        for (let i = 1; i <= 7; i++) {
+            if ($('#s' + i).hasClass('up')) {
+                compArr.push(1);
+            }
+            else if ($('#s' + i).hasClass('down')) {
+                compArr.push(0);
+            }
+        }
+        for (let j = 0; j <= 7; j++) {
+            if (compArr[j] == switchArrMed[j]) {
+                correctSwitch++;
+            }
+        }
+        if ((correctSwitch - 1) == 7) {
+            completedLights();
+            let miniGameID = $('.switch-game-con').parent().attr('id');
+            $('#' + miniGameID).addClass('finished');
+        }
+        else {
+            count = 1;
+            displayCount(count);
+        }
+    }
+    else if (mode == 2) {
+        for (let i = 1; i <= 10; i++) {
+            if ($('#s' + i).hasClass('up')) {
+                compArr.push(1);
+            }
+            else if ($('#s' + i).hasClass('down')) {
+                compArr.push(0);
+            }
+        }
+        for (let j = 0; j <= 10; j++) {
+            if (compArr[j] == switchArrHrd[j]) {
+                correctSwitch++;
+            }
+        }
+        if ((correctSwitch - 1) == 10) {
+            completedLights();
+            let miniGameID = $('.switch-game-con').parent().attr('id');
+            $('#' + miniGameID).addClass('finished');
+        }
+        else {
+            count = 1;
+            displayCount(count);
+        }
+    }
+}
+
+$('.test-switch').click(function() {
+    testSwitchOrder(ranSwitch);
+    $('.test-switch').css({
+        'pointer-events' : 'none'
+    });
+});
+
+function checkSwitch() {
+    if ($(this).hasClass('up')) {
+        $(this).removeClass('up');
+        $(this).addClass('down');
+        $(this).css({
+            'top' : '50%'
+        });
+    }
+    else if ($(this).hasClass('down')) {
+        $(this).removeClass('down');
+        $(this).addClass('up');
+        $(this).css({
+            'top' : '0'
+        });
+    }
+}
+
+$('.switch').click(checkSwitch);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////  Hacking Game JS  //////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var hackDif = 0;
+var hackCount = 1;
+var hackCountRev = 6;
+var hackTry = 2;
+var ranMode = Math.floor(Math.random() * 3) + 1;
+var correctCode = 100000 + Math.floor(Math.random() * 900000);
+
+$('.miniGameNum').click(function() {
+    if (proBarCount != 1) {
+        hackMills = 25000;
+    }
+    else {
+        hackMills = 5000;
+    }
+    if (hackDif == 1) {
+        if ($(this).html() == hackCount) {
+            $(this).addClass('hidden');
+            hackCount++;
+        }
+        else {
+            $('.miniGameNum').removeClass('hidden');
+            shuffle(hackArr);
+            for (let i = 0; i < 6; i++) {
+                $('#num' + (i + 1)).html(hackArr[i]);
+            }
+            hackTry--;
+            hackCount = 1;
+        }
+    }
+    else if (hackDif == 2) {
+        if (proBarCount != 2) {
+            hackMills = 30000;
+        }
+        else {
+            hackMills = 5000;
+        }
+        if ($(this).html() == hackCount) {
+            $(this).addClass('hidden');
+            hackCount += 2;
+        }
+        else {
+            $('.miniGameNum').removeClass('hidden');
+            shuffle(hackArr);
+            for (let i = 0; i < 6; i++) {
+                $('#num' + (i + 1)).html(hackArr[i]);
+            }
+            hackTry--;
+            hackCount = 1;
+        }
+    }
+    else if (hackDif == 3) {
+        if (proBarCount != 3) {
+            hackMills = 125000;
+        }
+        else {
+            hackMills = 5000;
+        }
+        if ($(this).html() == hackCountRev) {
+            $(this).addClass('hidden');
+            hackCountRev--;
+        }
+        else {
+            $('.miniGameNum').removeClass('hidden');
+            shuffle(hackArr);
+            for (let i = 0; i < 6; i++) {
+                $('#num' + (i + 1)).html(hackArr[i]);
+            }
+            hackTry--;
+            hackCountRev = 6;
+        }
+    }
+    if (hackCount == 7 || hackCountRev == 0) {
+        $('.miniGameNum').removeClass('hidden');
+        $('.hacking-miniGame').addClass('hidden');
+        $('.pro-bar').css({
+            'background-color' : 'limegreen',
+            'transition' : 'none'
+        });
+        setTimeout(function() {
+            $('.pro-bar').css({
+                'width' : '100%',
+                'transition' : hackMills + 'ms',
+            });
+        }, 100);
+        hackCount = 1;
+        hackCountRev = 6;
+        stopProBar(hackDif);
+    }
+    if (hackTry == 0) {
+        count = 1;
+        displayCount(count);
+    }
+});
+
+var hackArr = [1, 2, 3, 4, 5, 6];
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    while (currentIndex != 0) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+}
+
+let proBarCount = 0;
+let modeOne = 0;
+function stopProBar(mode) {
+    var ProBarCheck = setInterval( function() {
+        let curWidth = $(".pro-bar").width() / $('.pro-bar').parent().width() * 100;
+        if(Math.floor(curWidth) >= 100){
+            let proBarWidth = $(".pro-bar").width() / $('.pro-bar').parent().width() * 100;
+            if (proBarWidth == 100) {
+                $('.code-pad-code').html(correctCode);
+                $('.pro-bar').css({
+                    'transition' : 'none'
+                });
+                $('.hacking-con').addClass('hidden');
+                clearInterval(ProBarCheck);
+            }
+        }
+    }, 1000/60);
+
+    let curWidth = $(".pro-bar").width() / $('.pro-bar').parent().width() * 100;
+    if (proBarCount != 3) {
+        setTimeout(function() {
+            let ran = Math.floor(Math.random() * 3);
+            if (ran > 0 && Math.floor(curWidth) != 100) {
+                startHackMiniGame(mode);
+                proBarCount++;
+            }
+            else {
+                proBarCount++;
+                modeOne++;
+                stopProBar(mode);
+            }
+            
+        }, 24000);
+    }
+}
+
+function startHackMiniGame(mode) {
+    let curWidth = $(".pro-bar").width() / $('.pro-bar').parent().width() * 100;
+    hackDif = mode;
+    console.log(mode);
+    if (mode == 1 && modeOne != 1 && Math.floor(curWidth) != 100 && Math.floor(curWidth) < 99) {
+        $('.pro-bar').css({
+            'width' : Math.floor(curWidth) + '%',
+            'transition' : 'none',
+            'background-color' : '#FF0000'
+        });
+        $('.hacking-miniGame').removeClass('hidden');
+        $('.miniGameNum').css({
+            'background-color' : 'rgba(10, 185, 10, 0.5)',
+            'border' : '3px solid rgb(10, 185, 10)'
+        });
+        shuffle(hackArr);
+        for (let i = 0; i < 6; i++) {
+            $('#num' + (i + 1)).html(hackArr[i]);
+        }
+    }
+    else if (mode == 2 && Math.floor(curWidth) != 100 && Math.floor(curWidth) < 99) {
+        $('.pro-bar').css({
+            'width' : Math.floor(curWidth) + '%',
+            'transition' : 'none',
+            'background-color' : 'red'
+        });
+        $('.hacking-miniGame').removeClass('hidden');
+        $('.miniGameNum').css({
+            'background-color' : 'rgba(255, 232, 25, 0.5)',
+            'border' : '3px solid rgb(255, 232, 25)'
+        });
+        shuffle(hackArr);
+        for (let i = 0; i < 6; i++) {
+            $('#num' + (i + 1)).html(hackArr[i]);
+        }
+    }
+    else if (mode == 3 && Math.floor(curWidth) != 100 && Math.floor(curWidth) < 99) {
+        $('.pro-bar').css({
+            'width' : Math.floor(curWidth) + '%',
+            'transition' : 'none',
+            'background-color' : 'red'
+        });
+        $('.hacking-miniGame').removeClass('hidden');
+        $('.miniGameNum').css({
+            'background-color' : 'rgba(185, 10, 10, 0.5)',
+            'border' : '3px solid rgb(185, 10, 10)'
+        });
+        shuffle(hackArr);
+        for (let i = 0; i < 6; i++) {
+            $('#num' + (i + 1)).html(hackArr[i]);
+        }
+    }
+}
+
+function proBar(mode) {
+    if (mode == 1) {
+        //50000
+        $('.pro-bar').css({
+            'width' : '100%',
+            'transition' : '50000ms'
+        });
+        stopProBar(mode);
+    }
+    else if (mode == 2) {
+        //70000
+        $('.pro-bar').css({
+            'width' : '100%',
+            'transition' : '70000ms'
+        });
+        stopProBar(mode);
+    }
+    else if (mode == 3) {
+        //150000
+        $('.pro-bar').css({
+            'width' : '100%',
+            'transition' : '150000ms'
+        });
+        stopProBar(mode);
+    }
+}
+
+$('.code-pad-enter').click(function() {
+    if (correctCode == $('.code-pad-code').html()) {
+        $('.code-pad-enter').css({
+            'pointer-events' : 'none'
+        });
+        completedLights();
+        let miniGameID = $('.code-pad-con').parent().attr('id');
+        $('#' + miniGameID).addClass('finished');
+    }
+});
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////  Wire Game JS  /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 var delayWire = 0;
 var redCount = 2;
 var blueCount = 3;
@@ -160,7 +554,9 @@ function checkWireCut(wire, colorSet, choice) {
             displayCount(count);
         }
         if (delayWire == 1 && redCount == 0) {
-            $('#l1').addClass('completed'); //needs changed when other mini games have been created
+            completedLights();
+            let miniGameID = $('.cut-wire-con').parent().attr('id');
+            $('#' + miniGameID).addClass('finished');
         }
     }
     else if (colorSet == 1) {
@@ -179,11 +575,12 @@ function checkWireCut(wire, colorSet, choice) {
             displayCount(count);
         }
         if (delayWire == 1 && blueCount == 0) {
-            $('#l1').addClass('completed'); //needs changed when other mini games have been created
+            completedLights();
+            let miniGameID = $('.cut-wire-con').parent().attr('id');
+            $('#' + miniGameID).addClass('finished');
         }
     }
     else if (colorSet == 2) {
-        console.log(wire);
         if (correctWires == 0) {
             correctWires = (6 - wire.length);
         }
@@ -195,7 +592,9 @@ function checkWireCut(wire, colorSet, choice) {
         }
         correctWires--;
         if (correctWires == 0) {
-            $('#l1').addClass('completed'); //needs changed when other mini games have been created
+            completedLights();
+            let miniGameID = $('.cut-wire-con').parent().attr('id');
+            $('#' + miniGameID).addClass('finished');
         }
     }
 }
@@ -361,10 +760,26 @@ function toolDetection() {
         $('.scan-con').addClass('hidden');
         $(document).unbind("mousemove");
     }
+
+    //pry tool
+    if($('#pry').hasClass('selected-tool')) {
+        $('#pan-img').click(function() {
+            $('#pan-img').addClass('hidden');
+        });
+    }
+
+    if($('#hacking').hasClass('selected-tool')) {
+        $('.code-pad-panel').click(function() {
+            $('.hacking-con').removeClass('hidden');
+            proBar(ranMode);
+        });
+    }
 }
 
 $('.tool').click(selectTools);
 $('#scan').click(toolDetection);
+$('#pry').click(toolDetection);
+$('#hacking').click(toolDetection);
 $('.wire-con').click(toolDetection);
 
 function selectTools() {
@@ -377,7 +792,7 @@ function selectTools() {
         $('.tool').addClass('disabled-tool');
         $(this).removeClass('disabled-tool');
         if($('#pry').hasClass('selected-tool')) {
-            console.log('pry tool selected');
+
         }
     }
 }
@@ -420,8 +835,6 @@ function openBook() {
 }
 
 function expand() {
-    //gets mini game info id
-    console.log($(this).attr('id'));
     if ($(this).hasClass('open')) {
         $('.mini-gameInfo-Expanded').css({
             'left' : '-50%'
@@ -429,6 +842,24 @@ function expand() {
         $('.mini-gameExpand').removeClass('open');
         $('.mini-gameExpand').removeClass('disabled');
         $(this).html('More Info');
+        if ($(this).attr('id') == 'mgInfo-1') {
+            $('.wire-info').css({
+                'height' : '0'
+            });
+            $('.wire-info').addClass('hidden');
+        }
+        else if ($(this).attr('id') == 'mgInfo-2') {
+            $('.code-info').css({
+                'height' : '0'
+            });
+            $('.code-info').addClass('hidden');
+        }
+        else if ($(this).attr('id') == 'mgInfo-3') {
+            $('.switch-info').css({
+                'height' : '0'
+            });
+            $('.switch-info').addClass('hidden');
+        }
     }
     else if($(".open").length <= 1){
         $('.mini-gameInfo-Expanded').css({
@@ -438,6 +869,24 @@ function expand() {
         $(this).addClass('open');
         $(this).removeClass('disabled');
         $(this).html('View Less');
+        if ($(this).attr('id') == 'mgInfo-1') {
+            $('.wire-info').css({
+                'height' : 'auto'
+            });
+            $('.wire-info').removeClass('hidden');
+        }
+        else if ($(this).attr('id') == 'mgInfo-2') {
+            $('.code-info').css({
+                'height' : 'auto'
+            });
+            $('.code-info').removeClass('hidden');
+        }
+        else if ($(this).attr('id') == 'mgInfo-3') {
+            $('.switch-info').css({
+                'height' : 'auto'
+            });
+            $('.switch-info').removeClass('hidden');
+        }
     }
 }
 
@@ -493,4 +942,19 @@ $('#prev').click(function() {
     });
 });
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////  MISC JS  //////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+var lightCount = 0;
+
+function completedLights() {
+    lightCount++;
+    $('#l' + lightCount).addClass('completed');
+    if (lightCount == 3) {
+        completed = 1;
+        count = 1;
+        displayCount(count);
+        $('#victory').removeClass('hidden');
+    }
+}
