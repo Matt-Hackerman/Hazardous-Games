@@ -144,8 +144,10 @@ function moveCursor(keys) {
     if ($(".selected").length <= 0) {
         if(currentArea == "Menu"){
             $("span").within(".modeSelection").first().addClass("selected");
-        }else{
+        }else if(currentArea == "Playing"){
             $("span").within(".playSpace").first().addClass("selected");
+        }else{
+            $("span").within(".GameEndOpt").first().addClass("selected");
         }
     } else {
         let current = $(".selected").attr("id");
@@ -185,8 +187,8 @@ function moveCursor(keys) {
                     let indi4 = randInt(4) * 4;
 
                     var indicatorArr = [indi1, indi2, indi3, indi4];
-                    $("body").append('<p></p><p class="blankLine"></p>');
-                    $("body").append("<p>Attempts Remaining: <span id='lifeCount'>■■■■</span></p><p class='blankLine'></p>");
+                    $("body").append('<p class="playStatus">password Required</p><p class="blankLine"></p>');
+                    $("body").append("<p>Attempt(s) Remaining: <span id='lifeCount'>■■■■</span></p><p class='blankLine'></p>");
                     $("body").append('<div class="playSpace"></div>');
 
                     for (x = 1; x <= 5; x++) {
@@ -384,33 +386,73 @@ function moveCursor(keys) {
                                 $("#lifeCount").text(lifeCountTXT);
                                 if(lives <= 0){
                                     $(".playSpace").remove();
-                                    $("body").append("<p>YOU FAILED</p>");
-                                    currentArea = "Failed";
+                                    $(".playStatus").remove();
+                                    $("body").append("<p>You have been locked out</p>");
+                                    $("body").append("<p class='blankLine'></p><div class='GameEndOpt'><p><span id='Restart'>\>Restart</span></p><p><span id='Logoff'>\>Logoff</span></p></div>")
+                                    currentArea = "GameEnd";
+                                }else if(lives == 1){
+                                    $(".playStatus").text("!!! Warning: Lockout Imminent !!!")
+                                }else{
+                                    $(".playStatus").text("password Required");
                                 }
                                 
 
                             }else{
                                 $(".terminalMessages").append("<p>\>Access Granted</p>");
+                                $(".terminalMessages").append("<p>\>Please wait...</p>");
                                 $("span").addClass("activated");
+                                setTimeout(function (){  
+                                    currentArea = "GameEnd";
+                                    $(".playSpace").remove();
+                                    $(".playStatus").remove();
+                                    $("body").append("<p>Congratulations! You Won!</p><p class='blankLine'></p><p>Would you like to play again?</p>");
+                                    $("body").append("<p class='blankLine'></p><div class='GameEndOpt'><p><span id='Restart'>\>Restart</span></p><p><span id='Logoff'>\>Logoff</span></p></div>")
+
+
+                                }, 3000);
                             }
 
 
                             
                         }else{
-                            let tempLock = false;
-                            while(!tempLock){
-                                let tempRandWord = wordsUsedList[randInt(wordsUsed)]
+                            let tempLock = true;
+                            let tempRandWord = 0;
+                            $(".terminalMessages").append($(".terminalSelected").html());
+                            while(tempLock){
+                                let tempRandWord = randInt(wordsUsed + 3)
+                                if(tempRandWord > wordsUsed & !hasReset){
+                                    lives = 4;
+                                    let lifeCountTXT = "";
+                                    for(x = lives; x > 0; x--){
+                                        lifeCountTXT += "■";
+                                    }
+                                    $("#lifeCount").text(lifeCountTXT);
+                                    $(".terminalMessages").append("<p>\>Tries Reset</p>");
+                                    $(".playStatus").text("password Required");
+                                    hasReset = true;
+                                    tempLock = false;
+                                }else if(tempRandWord <= wordsUsed){
+                                    for(y = 1; y <= wordsUsed; y++){
+                                        if($(".word" + y).first().text() != "." & y == tempRandWord & wordsUsed[tempRandWord] != correctWord){
+                                            console.log("test " + y);
+                                            tempLock = false;
+                                            $(".word" + y).text(".");
+                                            $(".word" + y).removeClass("word" + y);
+                                            $(".terminalMessages").append("<p>\>Dud removed</p>");
+                                            break;
+                                        }
+                                    }
+                                }
+                                
                             }
                             randInt(wordsUsed.length);
-                            $(".terminalMessages").append($(".terminalSelected").html());
-                            $(".terminalMessages").append("<p>\>Dud removed</p>");
                             $(".selectedSpan").addClass("activated");
                             $(".selectedSpan").removeClass("selectedSpan");
                         }
                         
                     }
                 }
-                if(currentArea = "Playing"){
+                if(currentArea == "Playing"){
 
                     currentSelect = $(".selected").attr("class");
                     currentSelect = currentSelect.replace(" selected", "");
@@ -501,7 +543,35 @@ function moveCursor(keys) {
 
 
             });
+        }else if(currentArea == "GameEnd"){
+            if (keys['UP'] || keys['LEFT']) {
+                $(".selected").removeClass("selected")
+                    if(current == "Restart"){
+                        $("#Logoff").addClass("selected");
+                    }else if(current == "Logoff"){
+                        $("#Restart").addClass("selected");
+                    }
+            } else if (keys['DOWN'] || keys['RIGHT']) {
+                $(".selected").removeClass("selected")
+                    if(current == "Restart"){
+                        $("#Logoff").addClass("selected");
+                    }else if(current == "Logoff"){
+                        $("#Restart").addClass("selected");
+                    }
+            } else if (keys['ENTER']) {
+                    if(current == "Restart"){
+                        location.reload(false);
+                    }else if(current == "Logoff"){
+                        $("body").html(" ");
+                        setTimeout(function(){
+                            $("body").css("background-image", "radial-gradient(ellipse, #244619, #010401)");
+                            console.log("Activated")
+                        }, 500);
+                    }
+            }
+
         }
+        console.log(currentArea);
     }
     
     $(".terminalSelected>p").text(">" + $(".selectedSpan").text());

@@ -9,10 +9,10 @@
     <div class="home-Grid">
         <div class="filler-grid"></div>
         <div class="game-grid">
-            <?php for($i = 0; $i < 10; $i++) { ?>
+            <?php foreach($games as $key => $game) { ?>
                 <div class="game-con">
                     <div class="game">
-
+                        
                     </div>
                     <div class="game-title">
                         <h4>Title</h4>

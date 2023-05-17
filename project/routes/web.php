@@ -1,4 +1,6 @@
 <?php
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 if(!isset($_SESSION)){ 
@@ -6,7 +8,8 @@ if(!isset($_SESSION)){
 }
 
 Route::get('/', function () {
-    return view('home');
+    $games = DB::select("select GameID, Title, Developer, URL, ThumbURL from games");
+    return view('home')->with("games", $games);
 });
 
 Route::get('/header', function () {
