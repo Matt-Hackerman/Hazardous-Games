@@ -20,6 +20,14 @@ canvas {
     display: none;
 }
 
+.start {
+    font-size: 5vh;
+    text-align: center;
+    color: white;
+    position: absolute;
+    height: auto;
+}
+
 .score {
     display: flex;
     justify-content: center;
