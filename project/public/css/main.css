@@ -43,7 +43,7 @@ body {
 }
 
 .logo {
-    width: 25%;
+    width: fit-content;
     height: 100%;
 }
 
@@ -173,6 +173,12 @@ footer {
         display: none;
     }
     .footer-Hazardous-More>* {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1370px) {
+    .logo-text {
         display: none;
     }
 }
@@ -376,3 +382,19 @@ input:checked + .slider:before {
     color: #fff;
     padding: 0 0 5px 0;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #575252; 
+}
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #817d7d;
+    border-radius: 10px;
+}
+
