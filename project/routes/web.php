@@ -1,12 +1,16 @@
 <?php
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Mockery\Undefined;
 
 if(!isset($_SESSION)){ 
     session_start(); 
 }
 
 Route::get('/', function () {
-    return view('home');
+    $games = DB::select("select GameID, Title, Description, Developer, URL, ThumbURL from games");
+    return view('home')->with("games", $games);
 });
 
 Route::get('/header', function () {
@@ -28,12 +32,17 @@ Route::get('/simon-says', function() {
 Route::get('/bomb-defusal', function() {
     return view('/bd-game');
 });
-Route::get('/premium', function () {
-    return view('premium');
+
+// Route::get('/premium', function () {
+//     return view('premium');
+// });
+
+Route::get('/robco', function () {
+    return view('games/RobCoHacker');
 });
 
-Route::get('/GameTest', function () {
-    return view('games/RobCoHacker');
+Route::get('/knucklebones', function () {
+    return view('games/KnuckleBones');
 });
 
 
@@ -46,6 +55,16 @@ Route::get('/galaga', function () {
 });
 
 Route::get('/game', function () {
-    return view('game');
+    $gameID = $_GET["gameID"];
+    if($gameID == NULL || $gameID == "Undefined"){
+        $gameID = $_SESSION['gameID'];
+        if($gameID == NULL || $gameID == "Undefined"){
+            return redirect("/");
+        }
+    }
+    $_SESSION['gameID'] = $gameID;
+
+    $gameInfo = DB::select("select GameID, Title, Description, Developer, URL, ThumbURL from games where GameID = $gameID");
+    return view('game')->with("gameInfo", $gameInfo);
 });
 

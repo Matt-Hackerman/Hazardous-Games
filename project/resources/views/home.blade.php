@@ -7,22 +7,38 @@
 
 @section('content')
     <div class="home-Grid">
-        <div class="filler-grid"></div>
+        <div class="filler-grid">
+            <div class="filler">
+                <img class="ad-space" id="f1" src="" alt="filler">
+            </div>
+            <div class="filler">
+                <img class="ad-space" id="f2" src="" alt="filler">
+            </div>
+        </div>
         <div class="game-grid">
-            <?php for($i = 0; $i < 8; $i++) { ?>
-                <?php for($i = 0; $i < 8; $i++) { ?>
-                    <div class="game-con">
+            <?php foreach($games as $key => $game) { ?>
+                <form method="get" action="/game/?" class="game-con">
+                    <input type="hidden" name="gameID" value="<?php echo $game->GameID; ?>">
+                    <button class="game-butt dark">
                         <div class="game">
-    
+                            <img src="<?php echo $game->ThumbURL; ?>">
                         </div>
                         <div class="game-title">
-                            <h4>Title</h4>
+                            <h4><?php echo $game->Title; ?></h4>
+                            <p>Created by <?php echo $game->Developer; ?></p>
                         </div>
-                    </div>
-                <?php } ?>
+                    </button>
+                </form>
             <?php } ?>
         </div>
-        <div class="filler-grid"></div>
+        <div class="filler-grid">
+            <div class="filler">
+                <img class="ad-space" id="f3" src="" alt="filler">
+            </div>
+            <div class="filler">
+                <img class="ad-space" id="f4" src="" alt="filler">
+            </div>
+        </div>
     </div>
     <footer>
         <div class="footer-Con">
