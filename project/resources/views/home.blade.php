@@ -19,7 +19,7 @@
             <?php for($i = 0; $i < 8; $i++) { ?>
                 <div class="game-con">
                     <div class="game">
-
+                        
                     </div>
                     <div class="game-title">
                         <h4>Title</h4>
