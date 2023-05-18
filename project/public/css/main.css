@@ -13,13 +13,13 @@ body {
 
 .dark {
     background-color: #363636;
-    color: white;
+    color: white !important;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .light {
     background-color: whitesmoke;
-    color: black;
+    color: black !important;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -382,3 +382,19 @@ input:checked + .slider:before {
     color: #fff;
     padding: 0 0 5px 0;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #575252; 
+}
+   
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #817d7d;
+    border-radius: 10px;
+}
+
