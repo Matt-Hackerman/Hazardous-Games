@@ -7,7 +7,7 @@ iframe {
 .holder {
     width: 100%;
     min-height: 75vh;
-    padding-left: 25%;
+    padding-left: 30%;
 }
 
 .main {
@@ -15,6 +15,10 @@ iframe {
     grid-template-columns: 75% 1fr;
     width: 100%;
     min-height: 100%;
+}
+
+.description {
+    padding: 10px;
 }
 
 .description>* {
@@ -31,12 +35,12 @@ iframe {
 }
 
 
-
 @media screen and (max-width: 1000px) {
     .main {
       grid-template-columns: 1fr;
     }
     .holder {
+        padding-left: 25%;
         padding-right: 25%;
     }
     .description {
