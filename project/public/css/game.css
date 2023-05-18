@@ -5,16 +5,17 @@ iframe {
 }
 
 .holder {
-    width: 100%;
+    width: 90%;
     min-height: 75vh;
-    padding-left: 25%;
+    
 }
 
 .main {
     display: grid;
-    grid-template-columns: 75% 1fr;
-    width: 100%;
-    min-height: 100%;
+    grid-template-columns: 7fr 3fr;
+    width: fit-content;
+    justify-items: center;
+    margin-right: 15px;
 }
 
 .description>* {
@@ -35,9 +36,6 @@ iframe {
 @media screen and (max-width: 1000px) {
     .main {
       grid-template-columns: 1fr;
-    }
-    .holder {
-        padding-right: 25%;
     }
     .description {
         min-height: 10rem;
