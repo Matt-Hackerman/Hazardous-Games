@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id("GameID");
             $table->string("Title")->unique();
+            $table->string("Description", "5000");
             $table->string("Developer");
             $table->string("URL")->unique();
             $table->string("ThumbURL");

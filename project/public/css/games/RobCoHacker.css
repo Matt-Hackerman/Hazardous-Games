@@ -9,6 +9,7 @@
 body {
     display: flex;
     justify-content: left;
+    background-color: black;
     background-image: url(../../images/F4Terminal.png), radial-gradient(ellipse, #0c1609, #010401);
     background-repeat: no-repeat;
     flex-direction: column;
@@ -17,6 +18,7 @@ body {
     width: 100vw;
     height: 100vh;
     padding: 10vh 20vw;
+    
 }
 
 p {
@@ -27,6 +29,7 @@ p {
     font-size: 2vh;
     line-height: 2.5vh;
     letter-spacing: 0.5vw;
+    word-wrap: 0;
     
 }
 

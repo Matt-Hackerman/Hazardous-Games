@@ -7,8 +7,17 @@
 @extends('header')
 
 @section('content')
-    <iframe id="galaga" src="http://127.0.0.1:8000/galaga" title="Galaga">
-    </iframe>
+    <div class="main">
+        <div class="holder">
+            <iframe src="http://127.0.0.1:8000/<?php echo $gameInfo[0]->URL ?>"></iframe>
+        </div>
+        <div class="description">
+            <h1><?php echo $gameInfo[0]->Title ?></h1>
+            <h5>Developed by <?php echo $gameInfo[0]->Developer ?></h5>
+
+            <p><?php echo $gameInfo[0]->Description ?></p>
+        </div>
+    </div>
     <footer>
         <div class="footer-Con">
             <div class="footer-Logo-Con">

@@ -1,7 +1,6 @@
 $(document).ready(function(){
-    startGame();
+    myGameArea.start();
     myGamePiece = new component($('canvas').width() * .05, $('canvas').height() * .05, "red", ($('canvas').width() * .5)-($('canvas').width() * .05)/2, ($('canvas').height())-($('canvas').height() * .1));
-    
     for(x=0;x<2;x++){
         live = new component($('canvas').width() * .03, $('canvas').height() * .03, "red", $('canvas').width() * liveX, $('canvas').height() * .96 );
         liveArray.push(live);
@@ -81,10 +80,10 @@ var liveArray = [];
 var liveX = .03;
 var runtime = 1000/60;
 var score = 0;
+var firstClick = false;
 
 
 function startGame() {
-    myGameArea.start();
 }
 
 function shoot(){
@@ -149,20 +148,13 @@ function reload(){
     location.reload(false);
 }
 
-var count = 0;
-var max = 25;
-var toggle = true;
-var myGameArea = { 
-    canvas : document.createElement("canvas"),
-    start : function() {
-        this.canvas.height = $(document).height() * .9;
-        this.canvas.width = $(document).width() * .4;
-        this.context = this.canvas.getContext("2d");
-        $('.container').append(this.canvas);
+function startNow(){
+    if(firstClick == false) {
+        $('.start').css("display", "none");
         var interval = setInterval(function(){
+            update();
             fire--;
             fire2--;
-            update();
             $('.score').text(score);
             if(lives == 2){
                 liveArray.splice(1, 1);
@@ -253,7 +245,7 @@ var myGameArea = {
         
 
             
- 
+
             if(enemies.length == 0){
                 yVar = .1;
                 xVar = .38;
@@ -311,9 +303,20 @@ var myGameArea = {
             if(enemies.length == 1 && enemies[0].y + enemies[0].height > $('canvas').height() || enemies[1].y + enemies[1].height > $('canvas').height()){
                 enemies.splice(0, 1);
             }
-
-
         }, runtime);
+    }
+};
+
+var count = 0;
+var max = 25;
+var toggle = true;
+var myGameArea = { 
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.height = $(document).height() * .9;
+        this.canvas.width = $(document).width() * .4;
+        this.context = this.canvas.getContext("2d");
+        $('.container').append(this.canvas);
     },
 
     clear : function() {
