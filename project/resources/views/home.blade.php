@@ -9,10 +9,10 @@
     <div class="home-Grid">
         <div class="filler-grid">
             <div class="filler">
-                <img id="f1" src="" alt="filler">
+                <img class="ad-space" id="f1" src="" alt="filler">
             </div>
             <div class="filler">
-                <img id="f2" src="" alt="filler">
+                <img class="ad-space" id="f2" src="" alt="filler">
             </div>
         </div>
         <div class="game-grid">
@@ -33,10 +33,10 @@
         </div>
         <div class="filler-grid">
             <div class="filler">
-                <img id="f3" src="" alt="filler">
+                <img class="ad-space" id="f3" src="" alt="filler">
             </div>
             <div class="filler">
-                <img id="f4" src="" alt="filler">
+                <img class="ad-space" id="f4" src="" alt="filler">
             </div>
         </div>
     </div>
