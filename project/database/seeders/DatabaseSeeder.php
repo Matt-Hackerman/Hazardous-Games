@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
 
         Games::create([
             'Title' => 'Simon Says',
-            'Description' => 'A remake an spin of the famous game Simon Says memory game, this game will test your memory skills as you will need to pay attention to the sequence and match it. This game has no end so get in there an see how far you can get, and remember to pay attention as it will come in handy later.',
+            'Description' => 'A remake and spin of the famous memory game, Simon Says. This game will test your memory skills as you will need to pay attention to the sequence and match it. This game has no end so get in there and see how far you can get, and remember to pay attention as it will come in handy later.',
             'Developer' => 'Matthew Hackman',
             'URL' => 'simon-says',
             'ThumbURL' => 'https://cdn.discordapp.com/attachments/1081288933406670989/1108803285177081947/simonsays.png',

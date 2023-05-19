@@ -33,7 +33,6 @@ class UsersController extends Controller
             return redirect('signup');
         }
         users::create($request->all());
-        Premium::create([]);
         return redirect('login');
     }
 
