@@ -101,7 +101,7 @@ $(document).ready(function() {
         let number = current.substring(1, current.length);
         // alert(event.key);
         if(!fired){
-            if (event.key == "ArrowUp"){
+            if (event.key === "w"){
                 if(current != "b2" && current != "b3" && current != "b5" && current != "b6" && current != "b8" && current != "b9" && current != "b11" && current != "b12"){
                     fired = true;
                     let frogInners = frog1.detach();
@@ -209,7 +209,7 @@ $(document).ready(function() {
                     }
                 }
 
-            } else if (event.key == "ArrowDown"){
+            } else if (event.key === "s"){
                 if(letter != "m"){
                     fired = true;
                     let frogInners = frog1.detach();
@@ -220,7 +220,7 @@ $(document).ready(function() {
                     frogInners.appendTo(newFrog);
                     frogCoord = document.querySelector('.' + current).getBoundingClientRect();
                 }
-            } else if (event.key == "ArrowLeft"){
+            } else if (event.key === "a"){
                 if(number != "1" && letter != "a"){
                     fired = true;
                     let frogInners = frog1.detach();
@@ -230,7 +230,7 @@ $(document).ready(function() {
                     frogInners.appendTo(newFrog);
                     frogCoord = document.querySelector('.' + current).getBoundingClientRect();
                 }
-            } else if (event.key == "ArrowRight"){
+            } else if (event.key === "d"){
                 if(number != "13" && letter != "a"){
                     fired = true;
                     let frogInners = frog1.detach();

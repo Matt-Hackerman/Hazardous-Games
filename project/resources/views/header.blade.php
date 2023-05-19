@@ -38,7 +38,6 @@
                 <div class="nav">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/about">About</a></li>
                         <?php 
                             if(isset($_SESSION['UserID']) AND $_SESSION['UserID'] != null){
                                 echo '<li><a href="/premium">Premium</a>
